@@ -3,20 +3,20 @@ version: '3.3'
 services: 
     wordpress:
         build: .
-        restart: always
+        # restart: always
         ports: 
-            - 8080:80
+            - 80:80
         environment: 
             WORDPRESS_DB_HOST: db
             WORDPRESS_DB_USER: wpuser
             WORDPRESS_DB_PASSWORD: wppass
             WORDPRESS_DB_NAME: wpdb
-        volumes: 
-            - ./src:/var/www/html/wp-content/plugins/meu-plugin
+        # volumes: 
+        #     - ./src:/var/www/html/wp-content/plugins/meu-plugin
 
     db:
-        image: mysql:5.7
-        restart: always
+        image: mysql:8
+        # restart: always
         environment: 
             MYSQL_DATABASE: wpdb
             MYSQL_USER: wpuser
