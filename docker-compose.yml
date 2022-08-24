@@ -13,7 +13,7 @@ services:
             WORDPRESS_DB_NAME: wpdb
         volumes: 
             - ./src:/var/www/html
-            # - ./docker/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - ./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
 
     db:
         image: mysql:8
@@ -23,10 +23,10 @@ services:
             MYSQL_USER: wpuser
             MYSQL_PASSWORD: wppass
             MYSQL_RANDOM_ROOT_PASSWORD: '1'
-        # volumes: 
-        #     - ./database:/var/lib/mysql
+        volumes: 
+            - ./docker/mysql/:/var/lib/mysql/
 
-    adminer:
+    adminer:    
         depends_on: 
             - db
         image: adminer
