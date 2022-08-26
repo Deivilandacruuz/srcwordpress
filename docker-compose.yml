@@ -16,7 +16,7 @@ services:
             - ./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
 
     db:
-        image: mysql:8
+        image: mysql:5.7
         # restart: always
         environment: 
             MYSQL_DATABASE: wpdb
@@ -24,7 +24,7 @@ services:
             MYSQL_PASSWORD: wppass
             MYSQL_RANDOM_ROOT_PASSWORD: '1'
         volumes: 
-            - ./docker/mysql/:/var/lib/mysql/
+            - ./docker/mysql/:/var/lib/mysql
 
     adminer:    
         depends_on: 
